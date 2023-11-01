@@ -1,16 +1,43 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
+
+
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'landing',
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'home-alumno',
+    loadChildren: () => import('./home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule)
+  },
+  {
+    path: 'home-profesor',
+    loadChildren: () => import('./home-profesor/home-profesor.module').then( m => m.HomeProfesorPageModule)
+  },
+  {
+    path: 'generatedqr',
+    loadChildren: () => import('./generatedqr/generatedqr.module').then( m => m.GeneratedqrPageModule)
+  },
+  {
+    path: 'clase-detalle',
+    loadChildren: () => import('./clase-detalle/clase-detalle.module').then( m => m.ClaseDetallePageModule)
+  },
+  {
+    path: 'detalle-asistencia/:uuid', // Aquí usamos un parámetro dinámico para el UUID
+    loadChildren: () => import('./detalle-asistencia/detalle-asistencia.module').then(m => m.DetalleAsistenciaPageModule)
+  }
 ];
 
 @NgModule({

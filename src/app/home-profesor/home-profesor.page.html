@@ -1,0 +1,78 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Profesor</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <!-- Aquí es donde se añade el ítem para registrar asistencia -->
+      <ion-menu-toggle auto-hide="false">
+        <ion-item (click)="mostrarSeleccionClase()">Registrar Asistencia</ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item (click)="cerrarSesion()">Cerrar Sesion</ion-item>
+      </ion-menu-toggle>
+      <!-- Puedes añadir más ítems para otras acciones aquí si lo necesitas -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+</div>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Bienvenido {{ currentUser?.nombre }} {{ currentUser?.apellido }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <!-- Tarjeta de información del profesor -->
+  <ion-card class="custom-card">
+    
+    <ion-grid>
+      <ion-row>
+        <!-- Columna para la imagen -->
+        <ion-col size="4" class="align-center">
+          <img [src]="'assets/profile/' + currentUser.id + '.png'" alt="Foto del profesor" style="max-width: 100%; border-radius: 50%;">
+        </ion-col>
+        
+        <!-- Columna para el texto -->
+        <ion-col size="8" class="align-center">
+          <ion-card-content>
+            <ion-card-title>
+              {{ currentUser.nombre }} {{ currentUser.apellido }}
+            </ion-card-title>
+            <p *ngIf="currentUser.isProfesor">Profesor</p>
+            <p>Fecha de Ingreso: {{ currentUser.fechaIn }}</p>
+            <p>Sede: {{ currentUser.sede | uppercase }}</p>
+            <p>Correo: {{ currentUser.correo  }}</p>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-card>
+
+<ion-card *ngFor="let clase of clasesDelProfesor" (click)="verDetalleClase(clase)">
+  <img [src]="'assets/clases/' + clase.id + '.png'" alt="Imagen de la clase" style="width: 100%; height: auto; max-height: 80px; object-fit: cover;">
+  <ion-card-header>
+    <ion-card-title>{{ clase.nombre }}</ion-card-title>
+    <ion-card-subtitle>{{ clase.codigo }}</ion-card-subtitle>
+    <ion-card-subtitle>Ver detalles</ion-card-subtitle>
+  </ion-card-header>
+</ion-card>
+</ion-content>
+

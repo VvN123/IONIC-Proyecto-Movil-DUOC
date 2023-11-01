@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>generatedqr</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Generated QR</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+   <h1>{{uuid}}</h1>
+    <qrcode [qrdata]="uuid" [width]="256"></qrcode>
+  </ion-content>
+</ion-content>

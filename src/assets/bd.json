@@ -1,0 +1,570 @@
+{
+  "Usuario": [
+    {
+      "id": 100,
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "contraseña": "1",
+      "correo": "1",
+      "isProfesor": true,
+      "clases": [
+        3,
+        5,
+        7,
+        2
+      ],
+      "fechaIn": "19-11-2020",
+      "sede": "maipu"
+    },
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "contraseña": "123456",
+      "correo": "prof.juan@email.com",
+      "isProfesor": true,
+      "clases": [
+        3,
+        5,
+        7,
+        2
+      ],
+      "fechaIn": "19-11-2020",
+      "sede": "maipu"
+    },
+    {
+      "id": 2,
+      "nombre": "Ana",
+      "apellido": "García",
+      "contraseña": "abcdef",
+      "correo": "prof.ana@email.com",
+      "isProfesor": true,
+      "clases": [
+        4,
+        5,
+        8,
+        1
+      ],
+      "fechaIn": "20-02-2015",
+      "sede": "maipu"
+    },
+    {
+      "id": 3,
+      "nombre": "Carlos",
+      "apellido": "López",
+      "contraseña": "ghijkl",
+      "correo": "carlos@email.com",
+      "isProfesor": false,
+      "fechaIn": "15-08-2020",
+      "sede": "maipu"
+    },
+    {
+      "id": 4,
+      "nombre": "Sofía",
+      "apellido": "Rodríguez",
+      "contraseña": "mnopqr",
+      "correo": "sofia@email.com",
+      "isProfesor": false,
+      "fechaIn": "12-03-2019",
+      "sede": "maipu"
+    },
+    {
+      "id": 5,
+      "nombre": "Pedro",
+      "apellido": "Mora",
+      "contraseña": "stuvwx",
+      "correo": "pedro@email.com",
+      "isProfesor": false,
+      "fechaIn": "10-06-2018",
+      "sede": "maipu"
+    },
+    {
+      "id": 6,
+      "nombre": "Laura",
+      "apellido": "Ortega",
+      "contraseña": "yz0123",
+      "correo": "laura@email.com",
+      "isProfesor": false,
+      "fechaIn": "05-09-2021",
+      "sede": "maipu"
+    },
+    {
+      "id": 7,
+      "nombre": "Sergio",
+      "apellido": "Gómez",
+      "contraseña": "456789",
+      "correo": "sergio@email.com",
+      "isProfesor": false,
+      "fechaIn": "07-12-2017",
+      "sede": "maipu"
+    },
+    {
+      "id": 8,
+      "nombre": "Carmen",
+      "apellido": "Martínez",
+      "contraseña": "abcdef",
+      "correo": "carmen@email.com",
+      "isProfesor": false,
+      "fechaIn": "14-11-2016",
+      "sede": "maipu"
+    },
+    {
+      "id": 9,
+      "nombre": "Luis",
+      "apellido": "Guerrero",
+      "contraseña": "ghijkl",
+      "correo": "luis@email.com",
+      "isProfesor": false,
+      "fechaIn": "20-05-2020",
+      "sede": "maipu"
+    },
+    {
+      "id": 10,
+      "nombre": "Mariana",
+      "apellido": "Vega",
+      "contraseña": "789012",
+      "correo": "mariana@email.com",
+      "isProfesor": false,
+      "fechaIn": "25-07-2021",
+      "sede": "maipu"
+    },
+    {
+      "id": 11,
+      "nombre": "Gabriela",
+      "apellido": "Salazar",
+      "contraseña": "345678",
+      "correo": "gabriela@email.com",
+      "isProfesor": false,
+      "fechaIn": "13-10-2019",
+      "sede": "maipu"
+    },
+    {
+      "id": 12,
+      "nombre": "Fernanda",
+      "apellido": "Orozco",
+      "contraseña": "901234",
+      "correo": "fernanda@email.com",
+      "isProfesor": false,
+      "fechaIn": "18-03-2020",
+      "sede": "maipu"
+    },
+    {
+      "id": 13,
+      "nombre": "Valentina",
+      "apellido": "Herrera",
+      "contraseña": "567890",
+      "correo": "valentina@email.com",
+      "isProfesor": false,
+      "fechaIn": "22-04-2021",
+      "sede": "maipu"
+    },
+    {
+      "id": 14,
+      "nombre": "Diego",
+      "apellido": "Montoya",
+      "contraseña": "123789",
+      "correo": "diego@email.com",
+      "isProfesor": false,
+      "fechaIn": "03-06-2018",
+      "sede": "maipu"
+    },
+    {
+      "id": 15,
+      "nombre": "Andrés",
+      "apellido": "Castillo",
+      "contraseña": "456012",
+      "correo": "andres@email.com",
+      "isProfesor": false,
+      "fechaIn": "08-09-2019",
+      "sede": "maipu"
+    },
+    {
+      "id": 16,
+      "nombre": "Felipe",
+      "apellido": "Paredes",
+      "contraseña": "789456",
+      "correo": "felipe@email.com",
+      "isProfesor": false,
+      "fechaIn": "11-01-2020",
+      "sede": "maipu"
+    }
+  ],
+  "Clase": [
+    {
+      "id": 1,
+      "nombre": "Base de Datos",
+      "codigo": "PY2023",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        10
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Filosofia",
+      "codigo": "PX2066",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        10,
+        11
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Desarrollo WEB",
+      "codigo": "PR3090",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Matemáticas Avanzadas",
+      "codigo": "MT4001",
+      "alumnos": [
+        9,
+        8,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Historia del Arte",
+      "codigo": "HA4012",
+      "alumnos": [
+        6,
+        5,
+        4,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 6,
+      "nombre": "Diseño Gráfico",
+      "codigo": "DG5018",
+      "alumnos": [
+        9,
+        7,
+        5,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+      ]
+    },
+    {
+      "id": 7,
+      "nombre": "Biología Molecular",
+      "codigo": "BM3099",
+      "alumnos": [
+        9,
+        6,
+        3,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": 8,
+      "nombre": "Física Cuántica",
+      "codigo": "FC6003",
+      "alumnos": [
+        8,
+        7,
+        4,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": 9,
+      "nombre": "Psicología",
+      "codigo": "PS4033",
+      "alumnos": [
+        9,
+        5,
+        3,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": 10,
+      "nombre": "Lingüística",
+      "codigo": "LG3011",
+      "alumnos": [
+        8,
+        6,
+        4,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ],
+  "Asistencia": [
+    {
+      "nombreClase": "Base de Datos",
+      "idClase": 1,
+      "uuid": "762b82d1-6c34-4d29-8428-a3c9f7f5c2e0",
+      "fecha": "02/11/2023 08:00",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "id": 26,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Filosofia",
+      "idClase": 2,
+      "uuid": "d3b07384-d113-4ec8-9e63-62b1521f5bf1",
+      "fecha": "02/11/2023 09:30",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "id": 28,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Desarrollo WEB",
+      "idClase": 3,
+      "uuid": "25c7c5a8-9e15-471b-8feb-0e6d8a57a0e0",
+      "fecha": "01/11/2023 11:00",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        10,
+        11
+      ],
+      "id": 29,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Desarrollo WEB",
+      "idClase": 3,
+      "uuid": "58d5e212-165b-4ca0-909b-c86b9cee0111",
+      "fecha": "02/11/2023 11:00",
+      "alumnos": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        10
+      ],
+      "id": 30,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Matemáticas Avanzadas",
+      "idClase": 4,
+      "uuid": "63c7b7d8-bd7f-40a7-98ee-4816f9e6ab77",
+      "fecha": "01/11/2023 12:30",
+      "alumnos": [
+        9,
+        8,
+        7,
+        10,
+        11,
+        12,
+        13
+      ],
+      "id": 31,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Matemáticas Avanzadas",
+      "idClase": 4,
+      "uuid": "7055b3c0-4a6f-4cda-9b8f-aeb5f2f3f356",
+      "fecha": "02/11/2023 12:30",
+      "alumnos": [
+        9,
+        8,
+        7,
+        10,
+        11,
+        12
+      ],
+      "id": 32,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Historia del Arte",
+      "idClase": 5,
+      "uuid": "b4dbb255-39a0-4e2f-842b-3ca6f15b4c99",
+      "fecha": "01/11/2023 14:00",
+      "alumnos": [
+        6,
+        5,
+        4,
+        10,
+        11,
+        12,
+        13
+      ],
+      "id": 33,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Historia del Arte",
+      "idClase": 5,
+      "uuid": "34b09350-d6c4-4697-8cb7-5e0aed0aab12",
+      "fecha": "02/11/2023 14:00",
+      "alumnos": [
+        6,
+        5,
+        4,
+        10,
+        11
+      ],
+      "id": 34,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Diseño Gráfico",
+      "idClase": 6,
+      "uuid": "0dcb9f11-4f21-4741-88db-20f75813bcee",
+      "fecha": "01/11/2023 15:30",
+      "alumnos": [
+        9,
+        7,
+        5,
+        10,
+        11,
+        12,
+        13
+      ],
+      "id": 35,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Diseño Gráfico",
+      "idClase": 6,
+      "uuid": "f6b26b0f-ecaf-4ed8-bd1a-46e2e5a4e4cf",
+      "fecha": "02/11/2023 15:30",
+      "alumnos": [
+        9,
+        7,
+        5,
+        10,
+        11,
+        12
+      ],
+      "id": 36,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Biología Molecular",
+      "idClase": 7,
+      "uuid": "9245b4c0-414e-4fdd-8a20-e1d0ab5e7b0f",
+      "fecha": "01/11/2023 17:00",
+      "alumnos": [
+        9,
+        6,
+        3,
+        10,
+        11,
+        12,
+        13
+      ],
+      "id": 37,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Biología Molecular",
+      "idClase": 7,
+      "uuid": "4e5ce8db-4ad6-4e07-8e7e-5f4e65a8d0f7",
+      "fecha": "02/11/2023 17:00",
+      "alumnos": [
+        9,
+        6,
+        3,
+        10,
+        11,
+        12
+      ],
+      "id": 38,
+      "isCerrada": false
+    },
+    {
+      "nombreClase": "Desarrollo WEB",
+      "idClase": 3,
+      "uuid": "89471a75-bb38-417e-9eef-850232a3c3c2",
+      "fecha": "01/11/2023 16:40",
+      "alumnos": [],
+      "id": 39
+    },
+    {
+      "nombreClase": "Historia del Arte",
+      "idClase": 5,
+      "uuid": "ee4d7fbe-fe8e-4bb1-91e0-5c3534e2aa9f",
+      "fecha": "01/11/2023 16:47",
+      "alumnos": [],
+      "id": 40
+    }
+  ]
+}

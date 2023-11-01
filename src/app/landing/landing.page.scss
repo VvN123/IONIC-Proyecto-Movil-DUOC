@@ -1,0 +1,29 @@
+.center-content {
+  --background: #ffffff;  // Establece el fondo como blanco
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo-link {
+  position: relative;
+  width: 50vw;  // Establece el logo al 50% del ancho de la pantalla
+  height: auto;
+}
+
+.my-logo {
+  display: block;
+  max-width: 100%;  // Garantiza que el logo no exceda el ancho del contenedor
+  height: auto;
+  animation: breathe 2s ease-in-out infinite;  // Aplica la animación aquí
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
