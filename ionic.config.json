@@ -1,0 +1,7 @@
+{
+  "name": "proyectomovil2023",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
