@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home-profesor"></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
+
+
     <ion-title>{{ clase.nombre }}</ion-title>
     <ion-title style="font-size: smaller;">COD. {{ clase.codigo }}</ion-title>
   </ion-toolbar>
@@ -20,18 +22,24 @@
     </ion-item>
   </ion-list>
 
-  <h4 style="text-align: left; margin-top: 20px;">Asistencias</h4>
-  <ion-list *ngIf="asistenciasFiltradas.length > 0; else noAsistencias">
-    <ion-item *ngFor="let asistencia of asistenciasFiltradas" (click)="verDetalleAsistencia(asistencia.uuid)">
-      <ion-label>
-        <h6>Clase {{ clase.nombre }} [{{ asistencia.fecha }}]</h6>
-        <p>Ver Detalles</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  
+  <ng-container *ngIf="currentUser.isProfesor">
+    <h4 style="text-align: left; margin-top: 20px;">Asistencias</h4>
+    <ion-list *ngIf="asistenciasFiltradas.length > 0; else noAsistencias">
+      <ion-item *ngFor="let asistencia of asistenciasFiltradas" (click)="verDetalleAsistencia(asistencia.uuid)">
+        <ion-label>
+          <h6>Clase {{ clase.nombre }} [{{ asistencia.fecha }}]</h6>
+          <p>Ver Detalles</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
 
-  <ng-template #noAsistencias>
-    <h5 style="text-align: left;">No existen asistencias registradas</h5>
-  </ng-template>
+    <ng-template #noAsistencias>
+      <h5 style="text-align: left;">No existen asistencias registradas</h5>
+    </ng-template>
+
+    <ion-button expand="full" (click)="accionBoton()">
+      Iniciar Clase
+    </ion-button>
+  </ng-container>
+
 </ion-content>

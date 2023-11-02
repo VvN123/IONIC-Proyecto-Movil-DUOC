@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, mergeMap, switchMap, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -62,19 +62,19 @@ export class ApiService {
       );
   }
   
-  getUserNamesFromSubject(id: number): Observable<string[]> {  //Retorna los nombres de los usuarios en una asignatura segun la ID de asignatura
-    return this.http.get<any[]>(`${this.apiUrl}/Clase?id=${id}`)
-      .pipe(
-        switchMap(clase => {
-          if (clase && clase.length === 1) {
-            let alumnosIds = clase[0].alumnos;
-            return this.getUserById(alumnosIds);
-          } else {
-            throw new Error('Clase no encontrada o hay múltiples coincidencias');
-          }
-        })
-      );
-  }
+  // getUserNamesFromSubject(id: number): Observable<string[]> {  //Retorna los nombres de los usuarios en una asignatura segun la ID de asignatura
+  //   return this.http.get<any[]>(`${this.apiUrl}/Clase?id=${id}`)
+  //     .pipe(
+  //       switchMap(clase => {
+  //         if (clase && clase.length === 1) {
+  //           let alumnosIds = clase[0].alumnos;
+  //           return this.getUserById(alumnosIds);
+  //         } else {
+  //           throw new Error('Clase no encontrada o hay múltiples coincidencias');
+  //         }
+  //       })
+  //     );
+  // }
   
   getUserById(ids: number[]): Observable<string[]> {  //Retorna una lista de nombres y appellidos de usuarios Almunos segun una lista de ID de usuario 
     return this.getUsers()
@@ -146,9 +146,21 @@ export class ApiService {
     );
   }
 
-  cerrarAsistencia(asistenciaId: number): Observable<any> {
-    const url = `${this.apiUrl}/Asistencia/${asistenciaId}`;
-    const body = { isCerrada: true };
-    return this.http.put(url, body);
+  cerrarAsistencia(asistenciaUuid: string): Observable<any> { // Cierra un evento de asistencia segun su UUID
+    return this.http.get<any[]>(`${this.apiUrl}/Asistencia?uuid=${asistenciaUuid}`).pipe(
+      mergeMap(asistencias => {
+        if (asistencias.length === 0) {
+          return throwError(() => new Error('Record not found'));
+        }
+        const asistencia = asistencias[0];
+        return this.http.patch(`${this.apiUrl}/Asistencia/${asistencia.id}`, { isCerrada: true });
+      }),
+      catchError(error => {
+        console.error('Error al cerrar la asistencia:', error);
+        return throwError(() => error);
+      })
+    );
   }
 }
+  
+  

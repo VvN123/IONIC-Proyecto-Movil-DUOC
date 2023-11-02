@@ -37,7 +37,8 @@ export class DetalleAsistenciaPage implements OnInit {
 
   cerrarAsistencia() {
     if (this.asistencia && !this.asistencia.isCerrada) {
-      this.apiService.cerrarAsistencia(this.asistencia.id).subscribe(
+      // Assuming you have a uuid property in your asistencia object
+      this.apiService.cerrarAsistencia(this.asistencia.uuid).subscribe(
         response => {
           this.asistencia.isCerrada = true;
         },

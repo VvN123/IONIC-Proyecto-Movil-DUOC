@@ -1,0 +1,22 @@
+.align-center {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.custom-card {
+      ion-card-title {
+        font-size: 1.2em;  
+      }
+    ion-card-content {
+        p {
+          font-size: 0.9em; 
+        }
+      }
+  }
+
+  
+  
+  
+  
+  

@@ -55,6 +55,13 @@
       "contraseña": "ghijkl",
       "correo": "carlos@email.com",
       "isProfesor": false,
+      "clases": [
+        1,
+        2,
+        3,
+        7,
+        9
+      ],
       "fechaIn": "15-08-2020",
       "sede": "maipu"
     },
@@ -65,6 +72,14 @@
       "contraseña": "mnopqr",
       "correo": "sofia@email.com",
       "isProfesor": false,
+      "clases": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        10
+      ],
       "fechaIn": "12-03-2019",
       "sede": "maipu"
     },
@@ -72,9 +87,17 @@
       "id": 5,
       "nombre": "Pedro",
       "apellido": "Mora",
-      "contraseña": "stuvwx",
-      "correo": "pedro@email.com",
+      "contraseña": "2",
+      "correo": "2",
       "isProfesor": false,
+      "clases": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        9
+      ],
       "fechaIn": "10-06-2018",
       "sede": "maipu"
     },
@@ -368,29 +391,6 @@
       "isCerrada": false
     },
     {
-      "isCerrada": true,
-      "id": 28
-    },
-    {
-      "nombreClase": "Desarrollo WEB",
-      "idClase": 3,
-      "uuid": "25c7c5a8-9e15-471b-8feb-0e6d8a57a0e0",
-      "fecha": "01/11/2023 11:00",
-      "alumnos": [
-        9,
-        8,
-        7,
-        6,
-        5,
-        4,
-        3,
-        10,
-        11
-      ],
-      "id": 29,
-      "isCerrada": false
-    },
-    {
       "nombreClase": "Desarrollo WEB",
       "idClase": 3,
       "uuid": "58d5e212-165b-4ca0-909b-c86b9cee0111",
@@ -405,7 +405,7 @@
         10
       ],
       "id": 30,
-      "isCerrada": false
+      "isCerrada": true
     },
     {
       "nombreClase": "Matemáticas Avanzadas",
@@ -438,23 +438,6 @@
         12
       ],
       "id": 32,
-      "isCerrada": false
-    },
-    {
-      "nombreClase": "Historia del Arte",
-      "idClase": 5,
-      "uuid": "b4dbb255-39a0-4e2f-842b-3ca6f15b4c99",
-      "fecha": "01/11/2023 14:00",
-      "alumnos": [
-        6,
-        5,
-        4,
-        10,
-        11,
-        12,
-        13
-      ],
-      "id": 33,
       "isCerrada": false
     },
     {
@@ -520,7 +503,7 @@
         13
       ],
       "id": 37,
-      "isCerrada": false
+      "isCerrada": true
     },
     {
       "nombreClase": "Biología Molecular",
@@ -537,6 +520,63 @@
       ],
       "id": 38,
       "isCerrada": false
+    },
+    {
+      "nombreClase": "Desarrollo WEB",
+      "idClase": 3,
+      "uuid": "da826beb-b068-4b10-b2af-dd6fea2af957",
+      "fecha": "02/11/2023 03:33",
+      "alumnos": [],
+      "id": 39
+    },
+    {
+      "nombreClase": "Desarrollo WEB",
+      "idClase": 3,
+      "uuid": "c69cab79-d9fc-42b5-8c9b-c7ee99cb403a",
+      "fecha": "02/11/2023 03:33",
+      "alumnos": [],
+      "id": 40
+    },
+    {
+      "nombreClase": "Desarrollo WEB",
+      "idClase": 3,
+      "uuid": "280e7f43-c54a-44af-81bd-8c2b32e07f4e",
+      "fecha": "02/11/2023 03:46",
+      "alumnos": [],
+      "id": 41
+    },
+    {
+      "nombreClase": "Física Cuántica",
+      "idClase": 8,
+      "uuid": "38f911bc-0908-4613-aa17-8b99d02fb025",
+      "fecha": "02/11/2023 03:58",
+      "alumnos": [],
+      "id": 42
+    },
+    {
+      "nombreClase": "Historia del Arte",
+      "idClase": 5,
+      "uuid": "ffa02f7a-0640-43c2-8f81-b644558f89a6",
+      "fecha": "02/11/2023 04:13",
+      "alumnos": [],
+      "id": 43
+    },
+    {
+      "nombreClase": "Filosofia",
+      "idClase": 2,
+      "uuid": "ffc2d36a-a945-4971-99fd-917d8942de20",
+      "fecha": "02/11/2023 05:40",
+      "alumnos": [],
+      "id": 44
+    },
+    {
+      "nombreClase": "Biología Molecular",
+      "idClase": 7,
+      "uuid": "a33a3089-d9c9-47b9-9689-d310959bc6c1",
+      "fecha": "02/11/2023 05:45",
+      "alumnos": [],
+      "id": 45,
+      "isCerrada": true
     }
   ]
 }
