@@ -19,8 +19,8 @@ export class ClaseDetallePage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params && params['clase']) {
         this.clase = JSON.parse(params['clase']);
-        this.loadAlumnosInscritos(this.clase.id); // Cargamos los alumnos usando el ID de la clase
-        this.loadAsistencias(this.clase.id); // Cargamos las asistencias usando el ID de la clase
+        this.loadAlumnosInscritos(this.clase.id); 
+        this.loadAsistencias(this.clase.id);
       }
     });
   }
@@ -37,7 +37,6 @@ export class ClaseDetallePage implements OnInit {
   }
 
   loadAsistencias(claseId: number) {
-    // Suponiendo que tienes un método en authService llamado getAsistenciasByClaseId
     this.authService.getAsistenciasPorIdClase(claseId).subscribe(
       asistencias => {
         this.asistenciasFiltradas = asistencias;

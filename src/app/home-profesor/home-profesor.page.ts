@@ -22,14 +22,12 @@ export class HomeProfesorPage implements OnInit {
   clasesDelProfesor: any[] = [];
 
 
-
   constructor(private authService: AuthService, private utilsService: UtilsService,private navCtrl: NavController, private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
     this.cargarClases();
     this.cargarUsuarios();
     this.currentUser = this.authService.getCurrentUser();
-
   }
 
   verDetalleClase(clase: any) {
@@ -39,6 +37,7 @@ export class HomeProfesorPage implements OnInit {
       }
     });
   }
+
   cargarClases() {
     this.authService.getClases().subscribe(clases => {
       this.clases = clases;
@@ -64,11 +63,9 @@ export class HomeProfesorPage implements OnInit {
 
   accionBoton() {
     if (this.claseSeleccionada) {
-      // Obtener el UUID y la fecha
       const { uuid, fecha } = this.utilsService.generateData();
       this.utilsService.setUUID(uuid);
   
-      // Crear el objeto asistencia
       const nuevaAsistencia = {
         nombreClase: this.claseSeleccionada.nombre,
         idClase: this.claseSeleccionada.id,
@@ -77,24 +74,14 @@ export class HomeProfesorPage implements OnInit {
         alumnos: []
       };
   
-      // Usar AuthService para enviar la nueva asistencia al servidor
       this.authService.addAsistencia(nuevaAsistencia).subscribe(response => {
         console.log('Asistencia creada:', response);
-        // this.navCtrl.navigateForward(`/claseQr/${nuevaAsistencia.uuid}`);
-        // console.log(this.navCtrl.navigateForward(`/claseQr/${nuevaAsistencia.uuid}`));
         this.router.navigate(['/generatedqr']);
-        console.log('navegado')
-
-        // console.log(this.router.navigate(['/claseqr', nuevaAsistencia.uuid]));
-
-        // Aquí puedes añadir lógica adicional, como mostrar una notificación de éxito
       }, error => {
         console.error('Error creando asistencia:', error);
-        // Aquí puedes manejar el error, por ejemplo mostrando una alerta al usuario
       });
     } else {
       console.warn('No se ha seleccionado ninguna clase');
-      // Puedes mostrar una alerta al usuario indicando que debe seleccionar una clase primero
     }
   }
 
@@ -102,8 +89,6 @@ export class HomeProfesorPage implements OnInit {
     const alumno = this.usuarios.find(user => user.id === id && !user.isProfesor);
     return alumno ? `${alumno.nombre} ${alumno.apellido}` : 'Desconocido';
   }
-
-
 
   async mostrarSeleccionClase() {
     const alert = await this.alertController.create({
@@ -140,7 +125,7 @@ export class HomeProfesorPage implements OnInit {
     });
   }
   cerrarSesion() {
-    this.authService.logout(); // Cierra la sesión
-    this.router.navigate(['/landing']); // Redirige al landing o ruta que desees
+    this.authService.logout();
+    this.router.navigate(['/landing']); 
   }
 }

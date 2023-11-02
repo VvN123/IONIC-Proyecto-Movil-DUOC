@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
 import { IonicModule } from '@ionic/angular';
-
 import { DetalleAsistenciaPageRoutingModule } from './detalle-asistencia-routing.module';
-
 import { DetalleAsistenciaPage } from './detalle-asistencia.page';
 
 @NgModule({

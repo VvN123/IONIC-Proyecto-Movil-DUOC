@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.page.html',
@@ -14,10 +13,8 @@ export class LandingPage implements OnInit {
   ngOnInit() {
   }
   goToLogin() {
-    // Cancela el setTimeout anterior para evitar redirecciones múltiples
     clearTimeout(this.timeout);
   
-    // Navega al inicio de sesión
     this.router.navigate(['/login']);
   }
 }

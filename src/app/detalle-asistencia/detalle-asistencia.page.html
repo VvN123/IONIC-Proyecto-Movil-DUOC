@@ -11,28 +11,24 @@
   <ion-header collapse="condense"> </ion-header>
   <br />
   <ion-item>
-    <ion-label
-      ><h3>{{asistencia?.nombreClase}}</h3>
-      <h4>{{asistencia?.fecha}}</h4></ion-label>
+    <ion-label>
+      <h3>{{asistencia?.nombreClase}}</h3>
+      <h4>{{asistencia?.fecha}}</h4>
+    </ion-label>
   </ion-item>
 
   <br />
-  
   <div style="text-align: center">
     <qrcode [qrdata]="asistencia?.uuid" [width]="256"></qrcode>
   </div>
-  <h4 style="text-align: left; margin-top: 20px;">Presentes</h4>
+  <h4 style="text-align: left; margin-top: 20px">Presentes</h4>
   <ion-list>
     <ion-item *ngFor="let alumno of asistencia?.alumnos">
-      <img [src]="'assets/profile/' + alumno.id + '.png'" alt="Profile picture" class="profile-img">
-      <ion-label>
-        {{ alumno.nombre }} {{ alumno.apellido }}
-      </ion-label>
+      <img [src]="'assets/profile/' + alumno.id + '.png'" alt="Profile picture" class="profile-img" />
+      <ion-label> {{ alumno.nombre }} {{ alumno.apellido }} </ion-label>
     </ion-item>
   </ion-list>
-  <ion-button expand="full" 
-  *ngIf="!asistencia?.isCerrada" 
-  (click)="cerrarAsistencia()">
-Cerrar Asistencia
-</ion-button>
+  <ion-button expand="full" *ngIf="!asistencia?.isCerrada" (click)="cerrarAsistencia()">
+    Cerrar Asistencia
+  </ion-button>
 </ion-content>

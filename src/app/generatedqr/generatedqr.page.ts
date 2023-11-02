@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilsService } from '../services/utils.service'; // If you're still planning on using the utils service
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-generatedqr',
@@ -9,10 +9,9 @@ import { UtilsService } from '../services/utils.service'; // If you're still pla
 export class GeneratedqrPage implements OnInit {
   uuid: string;
 
-  constructor(private utilsService: UtilsService) { } // If you're using the utils service
+  constructor(private utilsService: UtilsService) { }
 
   ngOnInit() {
     this.uuid = this.utilsService.getUUID();
-    // Additional logic here
   }
 }

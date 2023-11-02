@@ -17,10 +17,8 @@ export class UtilsService {
 
   private getCurrentDateTime(): string {
     const date = new Date();
-
-    // Configura el formato de fecha y hora como "DD/MM/YYYY H:mm"
     const day = this.padNumber(date.getDate());
-    const month = this.padNumber(date.getMonth() + 1); // Los meses van de 0 a 11
+    const month = this.padNumber(date.getMonth() + 1); 
     const year = date.getFullYear();
     const hours = this.padNumber(date.getHours());
     const minutes = this.padNumber(date.getMinutes());
@@ -29,7 +27,6 @@ export class UtilsService {
   }
 
   private padNumber(num: number): string {
-    // Si el número es menor a 10, antepone un '0'
     return num < 10 ? '0' + num : '' + num;
   }
   setUUID(uuid: string): void {

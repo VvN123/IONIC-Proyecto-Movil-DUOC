@@ -17,7 +17,6 @@ export class AuthService {
       .pipe(
         map(users => {
           if (users && users.length === 1) {
-            // Guardar el usuario en local si quieres mantener la sesión
             localStorage.setItem('currentUser', JSON.stringify(users[0]));
             return { isAuthenticated: true, isProfesor: users[0].isProfesor };
           } else {
@@ -56,7 +55,7 @@ export class AuthService {
             return {
               nombre: clases[0].nombre,
               codigo: clases[0].codigo
-            }; // Retorna el nombre y el código de la clase encontrada
+            };
           } else {
             throw new Error('Clase no encontrada o hay múltiples coincidencias'); 
           }
@@ -144,7 +143,6 @@ export class AuthService {
         if (!asistencia) {
           throw new Error('Asistencia no encontrada');
         }
-        // Suponiendo que la propiedad que contiene los IDs de los alumnos en la asistencia es 'alumnos'
         return this.getDetallesUsuariosByIds(asistencia.alumnos);
       })
     );

@@ -25,7 +25,6 @@ export class DetalleAsistenciaPage implements OnInit {
         this.asistencia = asistenciaData;
         console.log("DATOS de Asistencia", asistenciaData);
   
-        // Asumiendo que existe un método para obtener los alumnos por UUID de asistencia
         this.authService.getAlumnosByAsistenciaUuid(uuid).subscribe(alumnos => {
           this.asistencia.alumnos = alumnos;
           console.log("Alumnos de la Asistencia", alumnos);
@@ -40,16 +39,12 @@ export class DetalleAsistenciaPage implements OnInit {
     if (this.asistencia && !this.asistencia.isCerrada) {
       this.authService.cerrarAsistencia(this.asistencia.id).subscribe(
         response => {
-          // Manejar la respuesta aquí, por ejemplo, actualizar la UI para reflejar el cambio.
           this.asistencia.isCerrada = true;
-          // Puedes mostrar un mensaje de éxito o hacer alguna otra acción aquí.
         },
         error => {
-          // Manejar el error aquí.
           console.error('Error al cerrar la asistencia:', error);
         }
       );
     }
   }
-
 }
