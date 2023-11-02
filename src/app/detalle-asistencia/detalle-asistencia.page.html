@@ -22,11 +22,7 @@
     <qrcode [qrdata]="asistencia?.uuid || ''" [width]="256" [allowEmptyString]="true"></qrcode>
   </div>
   
-  <!-- <div style="text-align: center">
-    <qrcode [allowEmptyString]="true" [qrdata]="asistencia?.uuid" [width]="256"></qrcode>
-  </div> -->
-  <h4 style="text-align: left;">Participantes</h4>
-  <!-- Suponiendo que tienes un objeto de asistencia actual que tiene una propiedad alumnos -->
+  <h4 style="text-align: left;">Asistencia</h4>
   <ion-list *ngIf="asistencia?.alumnos.length > 0; else sinRegistros">
     <ion-item *ngFor="let alumno of asistencia?.alumnos">
       <img [src]="'assets/profile/' + alumno.id + '.png'" alt="Profile picture" class="profile-img">
@@ -40,4 +36,5 @@
   <ion-button expand="full" [disabled]="asistencia?.isCerrada" (click)="cerrarAsistencia()">
     {{ asistencia?.isCerrada ? 'Clase Cerrada' : 'Cerrar Clase' }}
   </ion-button>
+
 </ion-content>

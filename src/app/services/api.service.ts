@@ -12,13 +12,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  logIn(correo: string, contraseña: string): Observable<{isAuthenticated: boolean, isProfesor?: boolean}> { //Autentica usuarios
+  logIn(correo: string, contraseña: string): Observable<{isAuthenticated: boolean, isProfesor?: boolean}> { // Autentica al usuario y crea un elemento currentuser que guarda la sesion del usuario sin password
     return this.http.get<any[]>(`${this.apiUrl}/Usuario?correo=${correo}&contraseña=${contraseña}`)
       .pipe(
         map(users => {
           if (users && users.length === 1) {
-            localStorage.setItem('currentUser', JSON.stringify(users[0]));
-            return { isAuthenticated: true, isProfesor: users[0].isProfesor };
+            const user = users[0];
+            const { contraseña, ...userWithoutPassword } = user; 
+            localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
+            console.log(JSON.parse(localStorage.getItem('currentUser')))
+            return { isAuthenticated: true, isProfesor: user.isProfesor };
           } else {
             return { isAuthenticated: false };
           }
@@ -26,7 +29,7 @@ export class ApiService {
       );
   }
 
-  logOut() {      //Elimina info de la sesion actuan del storage
+  logOut() {  //Elimina info de la sesion actuan del storage
     localStorage.removeItem('currentUser');
   }
 
@@ -61,20 +64,6 @@ export class ApiService {
         })
       );
   }
-  
-  // getUserNamesFromSubject(id: number): Observable<string[]> {  //Retorna los nombres de los usuarios en una asignatura segun la ID de asignatura
-  //   return this.http.get<any[]>(`${this.apiUrl}/Clase?id=${id}`)
-  //     .pipe(
-  //       switchMap(clase => {
-  //         if (clase && clase.length === 1) {
-  //           let alumnosIds = clase[0].alumnos;
-  //           return this.getUserById(alumnosIds);
-  //         } else {
-  //           throw new Error('Clase no encontrada o hay múltiples coincidencias');
-  //         }
-  //       })
-  //     );
-  // }
   
   getUserById(ids: number[]): Observable<string[]> {  //Retorna una lista de nombres y appellidos de usuarios Almunos segun una lista de ID de usuario 
     return this.getUsers()

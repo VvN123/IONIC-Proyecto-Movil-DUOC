@@ -48,4 +48,7 @@ export class DetalleAsistenciaPage implements OnInit {
       );
     }
   }
+  eliminarClase(){
+    
+  }
 }

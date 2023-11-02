@@ -1,27 +1,11 @@
 {
   "Usuario": [
     {
-      "id": 100,
-      "nombre": "Juan",
-      "apellido": "Pérez",
-      "contraseña": "1",
-      "correo": "1",
-      "isProfesor": true,
-      "clases": [
-        3,
-        5,
-        7,
-        2
-      ],
-      "fechaIn": "19-11-2020",
-      "sede": "maipu"
-    },
-    {
       "id": 1,
       "nombre": "Juan",
       "apellido": "Pérez",
-      "contraseña": "123456",
-      "correo": "prof.juan@email.com",
+      "contraseña": "abcdef",
+      "correo": "profe.juan@duocuc.cl",
       "isProfesor": true,
       "clases": [
         3,
@@ -37,7 +21,7 @@
       "nombre": "Ana",
       "apellido": "García",
       "contraseña": "abcdef",
-      "correo": "prof.ana@email.com",
+      "correo": "profe.ana@duocuc.cl",
       "isProfesor": true,
       "clases": [
         4,
@@ -50,10 +34,10 @@
     },
     {
       "id": 3,
-      "nombre": "Carlos",
+      "nombre": "Vicente",
       "apellido": "López",
-      "contraseña": "ghijkl",
-      "correo": "carlos@email.com",
+      "contraseña": "abcdef",
+      "correo": "vicente@duocuc.cl",
       "isProfesor": false,
       "clases": [
         1,
@@ -388,7 +372,7 @@
         5
       ],
       "id": 26,
-      "isCerrada": false
+      "isCerrada": true
     },
     {
       "nombreClase": "Desarrollo WEB",
@@ -567,7 +551,8 @@
       "uuid": "ffc2d36a-a945-4971-99fd-917d8942de20",
       "fecha": "02/11/2023 05:40",
       "alumnos": [],
-      "id": 44
+      "id": 44,
+      "isCerrada": true
     },
     {
       "nombreClase": "Biología Molecular",
@@ -577,6 +562,31 @@
       "alumnos": [],
       "id": 45,
       "isCerrada": true
+    },
+    {
+      "nombreClase": "Filosofia",
+      "idClase": 2,
+      "uuid": "0cfbb0da-d1d1-48c9-a29d-5eb0a4166a76",
+      "fecha": "02/11/2023 06:15",
+      "alumnos": [],
+      "id": 46,
+      "isCerrada": true
+    },
+    {
+      "nombreClase": "Filosofia",
+      "idClase": 2,
+      "uuid": "32c0da4a-d77c-4d94-8b19-f66ce4ede0c2",
+      "fecha": "02/11/2023 06:17",
+      "alumnos": [],
+      "id": 47
+    },
+    {
+      "nombreClase": "Base de Datos",
+      "idClase": 1,
+      "uuid": "e6c1af37-8fa0-4165-81f4-bedc3e058ba3",
+      "fecha": "02/11/2023 06:49",
+      "alumnos": [],
+      "id": 48
     }
   ]
 }

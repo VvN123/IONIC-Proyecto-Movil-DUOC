@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-landing',
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 })
 export class LandingPage implements OnInit {
 
-  constructor( private router: Router) { }
-  private timeout: any;
+  constructor(private navCtrl: NavController) { }
+
   ngOnInit() {
   }
   goToLogin() {
-    this.router.navigate(['/login']);
+    this.navCtrl.navigateRoot('/login');
   }
 }
