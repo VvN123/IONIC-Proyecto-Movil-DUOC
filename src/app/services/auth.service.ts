@@ -150,14 +150,6 @@ export class AuthService {
     );
   }
 
-  // cerrarAsistencia(asistenciaId: number): Observable<any> {
-  //   // Este método enviará una solicitud PUT para actualizar la asistencia específica.
-  //   // Necesitarás cambiar el 'url' y el 'body' según cómo esté configurada tu API.
-  //   const url = `${this.apiUrl}/Asistencia/${asistenciaId}`;
-  //   const body = { isCerrada: true }; // El body que tu API requiere para la actualización.
-  //   return this.http.put(url, body);
-  // }
-
   cerrarAsistencia(asistenciaId: number): Observable<any> {
     const url = `${this.apiUrl}/Asistencia/${asistenciaId}`;
     const body = { isCerrada: true };
