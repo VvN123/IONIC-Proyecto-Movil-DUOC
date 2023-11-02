@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service'; // Ajusta la ruta para importar AuthService
+import { AuthService } from '../services/auth.service';
 import { NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,18 @@ export class LoginPage {
   contrasena: string;
   errorMessage: string;
 
-  constructor(private authService: AuthService,  private navCtrl: NavController) { }
+  constructor(private authService: AuthService, private navCtrl: NavController, private alertCtrl: AlertController) { }
 
-  login() {
-    this.authService.authenticate(this.correo, this.contrasena).subscribe(response => {
+  async login() {
+    if (!this.correo && !this.contrasena) {
+      this.showAlert('Debe ingresar datos solicitados');
+    } else if (!this.correo) {
+      this.showAlert('No ha ingresado el correo');
+    } else if (!this.contrasena) {
+      this.showAlert('No ha ingresado la contraseña');
+    } else {
+      const response = await this.authService.authenticate(this.correo, this.contrasena).toPromise();
+
       if (response.isAuthenticated) {
         if (response.isProfesor) {
           this.navCtrl.navigateForward('/home-profesor');
@@ -24,8 +33,18 @@ export class LoginPage {
           this.navCtrl.navigateForward('/home-alumno');
         }
       } else {
-        this.errorMessage = "Correo o contraseña incorrectos";
+        this.showAlert('Correo o contraseña incorrectos');
       }
+    }
+  }
+
+  async showAlert(message: string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Error',
+      message: message,
+      buttons: ['Aceptar']
     });
+
+    await alert.present();
   }
 }
