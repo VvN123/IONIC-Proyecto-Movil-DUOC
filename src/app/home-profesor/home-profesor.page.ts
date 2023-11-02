@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { ApiService } from '../services/api.service';
 import { UtilsService } from '../services/utils.service';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -22,12 +22,12 @@ export class HomeProfesorPage implements OnInit {
   clasesDelProfesor: any[] = [];
 
 
-  constructor(private authService: AuthService, private utilsService: UtilsService,private navCtrl: NavController, private router: Router, private alertController: AlertController) { }
+  constructor(private apiService: ApiService, private utilsService: UtilsService,private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
     this.cargarClases();
     this.cargarUsuarios();
-    this.currentUser = this.authService.getCurrentUser();
+    this.currentUser = this.apiService.getCurrentUser();
   }
 
   verDetalleClase(clase: any) {
@@ -39,7 +39,7 @@ export class HomeProfesorPage implements OnInit {
   }
 
   cargarClases() {
-    this.authService.getClases().subscribe(clases => {
+    this.apiService.getSubjects().subscribe(clases => {
       this.clases = clases;
       this.filtrarClasesDelProfesor();
     });
@@ -52,7 +52,7 @@ export class HomeProfesorPage implements OnInit {
   }
 
   cargarUsuarios() {
-    this.authService.getUsuarios().subscribe(usuarios => {
+    this.apiService.getUsers().subscribe(usuarios => {
       this.usuarios = usuarios;
     });
   }
@@ -74,7 +74,7 @@ export class HomeProfesorPage implements OnInit {
         alumnos: []
       };
   
-      this.authService.addAsistencia(nuevaAsistencia).subscribe(response => {
+      this.apiService.addAttendance(nuevaAsistencia).subscribe(response => {
         console.log('Asistencia creada:', response);
         this.router.navigate(['/generatedqr']);
       }, error => {
@@ -117,7 +117,7 @@ export class HomeProfesorPage implements OnInit {
     await alert.present();
   }
   obtenerNombreYCodigoDeClase(id: number) {
-    this.authService.getClaseById(id).subscribe(data => {
+    this.apiService.getSubjectById(id).subscribe(data => {
       console.log(`Nombre de la clase: ${data.nombre}`);
       console.log(`Código de la clase: ${data.codigo}`);
     }, error => {
@@ -125,7 +125,7 @@ export class HomeProfesorPage implements OnInit {
     });
   }
   cerrarSesion() {
-    this.authService.logout();
+    this.apiService.logOut();
     this.router.navigate(['/landing']); 
   }
 }

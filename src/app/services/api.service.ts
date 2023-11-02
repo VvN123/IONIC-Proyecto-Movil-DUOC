@@ -6,13 +6,13 @@ import { map, switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class ApiService {
 
   private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
-  authenticate(correo: string, contraseña: string): Observable<{isAuthenticated: boolean, isProfesor?: boolean}> {
+  logIn(correo: string, contraseña: string): Observable<{isAuthenticated: boolean, isProfesor?: boolean}> { //Autentica usuarios
     return this.http.get<any[]>(`${this.apiUrl}/Usuario?correo=${correo}&contraseña=${contraseña}`)
       .pipe(
         map(users => {
@@ -26,28 +26,27 @@ export class AuthService {
       );
   }
 
-  getUsuarios(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/Usuario`);
-  }
-  
-  getClases(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/Clase`);
-  }
-
-  addAsistencia(data): Observable<any> {
-    return this.http.post(`${this.apiUrl}/Asistencia`, data);
-  }
-  
-
-  logout() {
+  logOut() {      //Elimina info de la sesion actuan del storage
     localStorage.removeItem('currentUser');
   }
 
-  getCurrentUser() {
+  getUsers(): Observable<any[]> {  //Retorna a todos los usuarios
+    return this.http.get<any[]>(`${this.apiUrl}/Usuario`);
+  }
+  
+  getSubjects(): Observable<any[]> {  //Retorna todas las asignaturas
+    return this.http.get<any[]>(`${this.apiUrl}/Clase`);
+  }
+
+  addAttendance(data): Observable<any> {  //Crea un evento de asistencia
+    return this.http.post(`${this.apiUrl}/Asistencia`, data);
+  }
+  
+  getCurrentUser() {  //Retorna la informacion del usuario logeado actualmente
     return JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  getClaseById(id: number): Observable<any> {
+  getSubjectById(id: number): Observable<any> {  //Retorna una asignatura segund su ID
     return this.http.get<any[]>(`${this.apiUrl}/Clase?id=${id}`)
       .pipe(
         map(clases => {
@@ -63,13 +62,13 @@ export class AuthService {
       );
   }
   
-  getNombresAlumnosByClaseId(id: number): Observable<string[]> {
+  getUserNamesFromSubject(id: number): Observable<string[]> {  //Retorna los nombres de los usuarios en una asignatura segun la ID de asignatura
     return this.http.get<any[]>(`${this.apiUrl}/Clase?id=${id}`)
       .pipe(
         switchMap(clase => {
           if (clase && clase.length === 1) {
             let alumnosIds = clase[0].alumnos;
-            return this.getNombresUsuariosByIds(alumnosIds);
+            return this.getUserById(alumnosIds);
           } else {
             throw new Error('Clase no encontrada o hay múltiples coincidencias');
           }
@@ -77,8 +76,8 @@ export class AuthService {
       );
   }
   
-  getNombresUsuariosByIds(ids: number[]): Observable<string[]> {
-    return this.getUsuarios()
+  getUserById(ids: number[]): Observable<string[]> {  //Retorna una lista de nombres y appellidos de usuarios Almunos segun una lista de ID de usuario 
+    return this.getUsers()
       .pipe(
         map(usuarios => {
           return usuarios
@@ -88,13 +87,13 @@ export class AuthService {
       );
   }
 
-  getDetallesAlumnosByClaseId(id: number): Observable<any[]> {
+  getUserDataFromSubject(id: number): Observable<any[]> {  // Retorna la informacion de un usuario segun su ID
     return this.http.get<any[]>(`${this.apiUrl}/Clase?id=${id}`)
       .pipe(
         switchMap(clase => {
           if (clase && clase.length === 1) {
             let alumnosIds = clase[0].alumnos;
-            return this.getDetallesUsuariosByIds(alumnosIds);
+            return this.getUserDataById(alumnosIds);
           } else {
             throw new Error('Clase no encontrada o hay múltiples coincidencias');
           }
@@ -102,8 +101,8 @@ export class AuthService {
       );
   }
   
-  getDetallesUsuariosByIds(ids: number[]): Observable<any[]> {
-    return this.getUsuarios()
+  getUserDataById(ids: number[]): Observable<any[]> {  //Retorna una lista de usuarios alumnos segun su Id
+    return this.getUsers()
       .pipe(
         map(usuarios => {
           return usuarios
@@ -112,7 +111,7 @@ export class AuthService {
       );
   }
 
-  getAsistenciasPorIdClase(idClase: number): Observable<any[]> {
+  getAttendanceUsersFromSubject(idClase: number): Observable<any[]> {  //Retorna todos los eventos de asistencia de una asignatura segun su ID de clase
     return this.http.get<any[]>(`${this.apiUrl}/Asistencia?idClase=${idClase}`)
       .pipe(
         map(asistencias => {
@@ -121,29 +120,28 @@ export class AuthService {
       );
   }
 
-  getAsistenciaByUuid(uuid: string): Observable<any> {
+  getAttendanceDataByUuid(uuid: string): Observable<any> { //Retorna la lista de asistencia de un evento de asistencia segun su UUID
     return this.http.get<any[]>(`${this.apiUrl}/Asistencia?uuid=${uuid}`)
       .pipe(
         map(asistencias => {
           const asistencia = asistencias.find(asis => asis.uuid === uuid);
-          console.log("flag"+asistencia)
           if (asistencia) {
             return asistencia;
           } else {
-            console.log("flag error")
+
             throw new Error('Asistencia no encontrada');
           }
         })
       );
   }
 
-  getAlumnosByAsistenciaUuid(uuid: string): Observable<any[]> {
-    return this.getAsistenciaByUuid(uuid).pipe(
+  getUserAttendanceDataByUuid(uuid: string): Observable<any[]> { //Retorna la informacion de los alumnos que asitieron a un determinado evento de asistencia segun su UUID
+    return this.getAttendanceDataByUuid(uuid).pipe(
       switchMap(asistencia => {
         if (!asistencia) {
           throw new Error('Asistencia no encontrada');
         }
-        return this.getDetallesUsuariosByIds(asistencia.alumnos);
+        return this.getUserDataById(asistencia.alumnos);
       })
     );
   }

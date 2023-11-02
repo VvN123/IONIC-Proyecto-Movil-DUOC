@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DetalleAsistenciaPage } from './detalle-asistencia.page';
+import { AsistenciaDetallePage } from './detalle-asistencia.page';
 
 describe('DetalleAsistenciaPage', () => {
-  let component: DetalleAsistenciaPage;
-  let fixture: ComponentFixture<DetalleAsistenciaPage>;
+  let component: AsistenciaDetallePage;
+  let fixture: ComponentFixture<AsistenciaDetallePage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(DetalleAsistenciaPage);
+    fixture = TestBed.createComponent(AsistenciaDetallePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

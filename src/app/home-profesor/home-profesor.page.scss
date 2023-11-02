@@ -1,16 +1,16 @@
 .align-center {
     display: flex;
-    align-items: center; /* Alinea los elementos hijos en el centro verticalmente */
-    justify-content: center; /* Opcional: Centra horizontalmente, pero en este caso no es necesario */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .custom-card {
       ion-card-title {
-        font-size: 1.2em;  // Ajusta el valor según prefieras para el título
+        font-size: 1.2em;  
       }
     ion-card-content {
         p {
-          font-size: 0.9em;  // Aquí ajusta el valor según prefieras
+          font-size: 0.9em; 
         }
       }
   }

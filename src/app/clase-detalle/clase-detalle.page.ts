@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class ClaseDetallePage implements OnInit {
   alumnosInscritos: any[] = [];
   asistenciasFiltradas: any[] = [];
 
-  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -26,7 +26,7 @@ export class ClaseDetallePage implements OnInit {
   }
 
   loadAlumnosInscritos(claseId: number) {
-    this.authService.getDetallesAlumnosByClaseId(claseId).subscribe(
+    this.apiService.getUserDataFromSubject(claseId).subscribe(
       alumnos => {
         this.alumnosInscritos = alumnos;
       },
@@ -37,7 +37,7 @@ export class ClaseDetallePage implements OnInit {
   }
 
   loadAsistencias(claseId: number) {
-    this.authService.getAsistenciasPorIdClase(claseId).subscribe(
+    this.apiService.getAttendanceUsersFromSubject(claseId).subscribe(
       asistencias => {
         this.asistenciasFiltradas = asistencias;
       },

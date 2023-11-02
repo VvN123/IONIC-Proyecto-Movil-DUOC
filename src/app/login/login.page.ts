@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { ApiService } from '../services/api.service';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
@@ -10,11 +10,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage {
 
+  constructor(private apiService: ApiService, private navCtrl: NavController, private alertCtrl: AlertController) { }
   correo: string;
   contrasena: string;
   errorMessage: string;
-
-  constructor(private authService: AuthService, private navCtrl: NavController, private alertCtrl: AlertController) { }
 
   async login() {
     if (!this.correo && !this.contrasena) {
@@ -24,7 +23,7 @@ export class LoginPage {
     } else if (!this.contrasena) {
       this.showAlert('No ha ingresado la contraseña');
     } else {
-      const response = await this.authService.authenticate(this.correo, this.contrasena).toPromise();
+      const response = await this.apiService.logIn(this.correo, this.contrasena).toPromise();
 
       if (response.isAuthenticated) {
         if (response.isProfesor) {

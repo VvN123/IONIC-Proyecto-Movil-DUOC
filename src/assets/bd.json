@@ -368,20 +368,8 @@
       "isCerrada": false
     },
     {
-      "nombreClase": "Filosofia",
-      "idClase": 2,
-      "uuid": "d3b07384-d113-4ec8-9e63-62b1521f5bf1",
-      "fecha": "02/11/2023 09:30",
-      "alumnos": [
-        9,
-        8,
-        7,
-        6,
-        5,
-        4
-      ],
-      "id": 28,
-      "isCerrada": false
+      "isCerrada": true,
+      "id": 28
     },
     {
       "nombreClase": "Desarrollo WEB",
@@ -549,22 +537,6 @@
       ],
       "id": 38,
       "isCerrada": false
-    },
-    {
-      "nombreClase": "Desarrollo WEB",
-      "idClase": 3,
-      "uuid": "89471a75-bb38-417e-9eef-850232a3c3c2",
-      "fecha": "01/11/2023 16:40",
-      "alumnos": [],
-      "id": 39
-    },
-    {
-      "nombreClase": "Historia del Arte",
-      "idClase": 5,
-      "uuid": "ee4d7fbe-fe8e-4bb1-91e0-5c3534e2aa9f",
-      "fecha": "01/11/2023 16:47",
-      "alumnos": [],
-      "id": 40
     }
   ]
 }

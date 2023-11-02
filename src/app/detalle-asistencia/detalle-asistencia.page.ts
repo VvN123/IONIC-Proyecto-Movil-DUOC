@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-detalle-asistencia',
@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class DetalleAsistenciaPage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private authService: AuthService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
   asistencia : any
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -21,11 +21,11 @@ export class DetalleAsistenciaPage implements OnInit {
 
   async getAssistanceDetails(uuid: string) {
     try {
-      this.authService.getAsistenciaByUuid(uuid).subscribe(asistenciaData => {
+      this.apiService.getAttendanceDataByUuid(uuid).subscribe(asistenciaData => {
         this.asistencia = asistenciaData;
         console.log("DATOS de Asistencia", asistenciaData);
   
-        this.authService.getAlumnosByAsistenciaUuid(uuid).subscribe(alumnos => {
+        this.apiService.getUserAttendanceDataByUuid(uuid).subscribe(alumnos => {
           this.asistencia.alumnos = alumnos;
           console.log("Alumnos de la Asistencia", alumnos);
         });
@@ -37,7 +37,7 @@ export class DetalleAsistenciaPage implements OnInit {
 
   cerrarAsistencia() {
     if (this.asistencia && !this.asistencia.isCerrada) {
-      this.authService.cerrarAsistencia(this.asistencia.id).subscribe(
+      this.apiService.cerrarAsistencia(this.asistencia.id).subscribe(
         response => {
           this.asistencia.isCerrada = true;
         },

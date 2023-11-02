@@ -13,8 +13,6 @@ export class LandingPage implements OnInit {
   ngOnInit() {
   }
   goToLogin() {
-    clearTimeout(this.timeout);
-  
     this.router.navigate(['/login']);
   }
 }
